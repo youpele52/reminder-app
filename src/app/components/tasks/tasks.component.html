@@ -1,0 +1,16 @@
+<!-- Na this is not how you loop in angular -->
+<!-- <div>
+    {{tasks.map((task)=>{ 
+        return <p>tasks works!</p>
+    })}}
+</div> -->
+
+<!-- we use event to get the task -->
+<app-add-task (onAddTask)="addTask($event)"></app-add-task>
+<!-- <p *ngFor="let task of tasks">{{ task.text }}</p> -->
+<app-task-item
+  *ngFor="let task of tasks"
+  [task]="task"
+  (OnDeleteTask)="deleteTask(task)"
+  (onToggleReminder)="toggleReminder(task)"
+></app-task-item>
